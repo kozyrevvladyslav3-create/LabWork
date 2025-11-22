@@ -1,0 +1,59 @@
+import secrets
+import time
+
+HumHealth = 100
+HumRandDmg = int
+HumPriority = int
+resulthum = str("Monster had fainted. Hero wins.")
+
+MonHealth = 100
+MonRandDmg = int
+MonPriority = int
+resultmon = str("Hero had fainted. Monster wins.")
+
+resulttie = str("Both sides had fainted. No one wins.")
+
+gamespeed = float(input("Enter time speed multiplier(regular is 4 sec., long is 8 sec.):"))
+shortwait = 4 / gamespeed
+longwait = 8 / gamespeed
+
+while HumHealth > 0 and MonHealth > 0:
+    HumRandDmg = secrets.randbelow(16) + 5
+    HumPriority = secrets.randbelow(20)
+
+    MonRandDmg = secrets.randbelow(16) + 5
+    MonPriority = secrets.randbelow(20)
+
+    if HumPriority > MonPriority:
+        MonHealth = MonHealth - HumRandDmg
+        if MonHealth < 0:
+            MonHealth = 0
+
+        print("Hero hit for", HumRandDmg, "damage. Monster has", MonHealth, "health left.")
+        time.sleep(shortwait)
+    elif HumPriority < MonPriority:
+        HumHealth = HumHealth - MonRandDmg
+        if HumHealth < 0:
+            HumHealth = 0
+
+        print("Monster struck for", MonRandDmg, "damage. Hero has", HumHealth, "health left.")
+        time.sleep(shortwait)
+    else:
+        MonHealth = MonHealth - HumRandDmg
+        HumHealth = HumHealth - MonRandDmg
+        if MonHealth < 0:
+            MonHealth = 0
+        if HumHealth < 0:
+            HumHealth = 0
+
+        print("Both sides attacked at the same time. Hero hit for", HumRandDmg, "damage and Monster struck for", MonRandDmg, "damage. Hero has", HumHealth, "health left and Monster has", MonHealth, "health left.")
+        time.sleep(longwait)
+
+if MonHealth <= 0 and HumHealth > 0:
+    print(resulthum)
+elif MonHealth > 0 and HumHealth <= 0:
+    print(resultmon)
+elif HumHealth <= 0 and MonHealth <= 0:
+    print(resulttie)
+else:
+    print("An error has occured during the result processing.")
