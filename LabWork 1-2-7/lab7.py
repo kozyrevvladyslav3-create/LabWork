@@ -23,7 +23,11 @@ def accrued_salary(base_salary, rate):
     return base_salary * rate
 
 def personal_income_tax_amount(accrued_salary_operand):
-    return accrued_salary_operand * db.PERSONAL_INCOME_TAX_RATE + accrued_salary_operand * personal_income_tax_penalty_rate
+    if is_diya_resident == 1:
+        personal_income_tax_rate = db.PERSONAL_INCOME_TAX_RATE_DIYA
+    else:
+        personal_income_tax_rate = db.PERSONAL_INCOME_TAX_RATE
+    return accrued_salary_operand * personal_income_tax_rate + accrued_salary_operand * personal_income_tax_penalty_rate
 
 def military_tax_amount(accrued_salary_operand):
     return accrued_salary_operand * db.MILITARY_TAX_RATE
@@ -102,16 +106,11 @@ def average_salary_check():
     global average_salary
     for i in range(w.amount_of_workers()):
         accrued_salary_total += accrued_salary(w.base_salary[i], w.rate[i])
-        average_salary = accrued_salary_total / w.amount_of_workers()
+    average_salary = accrued_salary_total / w.amount_of_workers()
     if is_diya_resident == 1:
         global personal_income_tax_penalty_rate
         if average_salary < db.DIYA_MINIMUM_SALARY:
-            personal_income_tax_penalty_rate = 0.13
-        else:
-            pass
-    else:
-        pass
-
+            personal_income_tax_penalty_rate = db.PENALTY
 
 average_salary_check()
 

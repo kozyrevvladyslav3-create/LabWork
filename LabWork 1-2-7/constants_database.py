@@ -1,6 +1,7 @@
 import requests
 
 PERSONAL_INCOME_TAX_RATE = 0.18 #ПДФО
+PERSONAL_INCOME_TAX_RATE_DIYA = 0.05
 
 MILITARY_TAX_RATE = 0.05 #ВЗ
 
@@ -16,3 +17,5 @@ HRYVNA_TO_EURO_RATE = {dict_var["cc"]: dict_var for dict_var in requests.get("ht
 DIYA_MINIMUM_SALARY = EURO_MINIMUM_SALARY * HRYVNA_TO_EURO_RATE
 
 AMOUNT_OF_WORKERS_MINIMUM = 9
+
+print(HRYVNA_TO_EURO_RATE)
