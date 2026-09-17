@@ -1,0 +1,7 @@
+C:\Users\asus\Documents\GitHub\LabWork\LabWork 2-1-1\Introduction\Introduction\bin\Debug\Introduction.exe.config
+C:\Users\asus\Documents\GitHub\LabWork\LabWork 2-1-1\Introduction\Introduction\bin\Debug\Introduction.exe
+C:\Users\asus\Documents\GitHub\LabWork\LabWork 2-1-1\Introduction\Introduction\bin\Debug\Introduction.pdb
+C:\Users\asus\Documents\GitHub\LabWork\LabWork 2-1-1\Introduction\Introduction\obj\Debug\Introduction.csproj.AssemblyReference.cache
+C:\Users\asus\Documents\GitHub\LabWork\LabWork 2-1-1\Introduction\Introduction\obj\Debug\Introduction.csproj.CoreCompileInputs.cache
+C:\Users\asus\Documents\GitHub\LabWork\LabWork 2-1-1\Introduction\Introduction\obj\Debug\Introduction.exe
+C:\Users\asus\Documents\GitHub\LabWork\LabWork 2-1-1\Introduction\Introduction\obj\Debug\Introduction.pdb
